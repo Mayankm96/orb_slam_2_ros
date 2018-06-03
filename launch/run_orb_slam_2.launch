@@ -2,7 +2,7 @@
 <launch>
 
   <!-- Path of the file containing the ORB vocabulary. -->
-  <arg name="vocabulary_file_path"/>
+  <arg name="vocabulary_file_path" default = "$(find orb_slam_2_ros)/Vocabulary/ORBvoc.txt"/>
   <!-- Path of the file containing ORB SLAM2 configuration. -->
   <arg name="orb_slam2_settings_file_path" default = "$(find orb_slam_2_ros)/config/euroc/euroc.yaml"/>
     <!-- Path of the file containing camera calibration. -->
@@ -16,8 +16,8 @@
     <param name="vocabulary_file_path" value="$(arg vocabulary_file_path)"/>
     <param name="settings_file_path" value="$(arg orb_slam2_settings_file_path)"/>
     <param name="visualization" type="bool" value="true"/>
-    <remap from="camera/left/image_raw" to="/rect/first/image"/>
-    <remap from="camera/right/image_raw" to="/rect/second/image"/>
+    <remap from="camera/left/image_raw" to="/left/image_rect_color"/>
+    <remap from="camera/right/image_raw" to="/right/image_rect_color"/>
 
   </node>
 
@@ -32,8 +32,8 @@
 
     <rosparam file="$(arg camera_calibration_file_path)"/>
 
-    <remap from="raw/first/image" to="/cam0/image_raw"/>
-    <remap from="raw/second/image" to="/cam1/image_raw"/>
+    <remap from="raw/first/image" to="/left/image_raw_color"/>
+    <remap from="raw/second/image" to="/right/image_raw_color"/>
 
   </node>
 
