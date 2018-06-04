@@ -2,7 +2,7 @@
 <launch>
 
   <!-- Path of the file containing the ORB vocabulary. -->
-  <arg name="vocabulary_file_path" default = "$(find orb_slam_2_ros)/Vocabulary/ORBvoc.txt"/>
+  <arg name="vocabulary_file_path" default = "$(find orb_slam_2_ros)/config/Vocabulary/ORBvoc.txt"/>
   <!-- Path of the file containing ORB SLAM2 configuration. -->
   <arg name="orb_slam2_settings_file_path" default = "$(find orb_slam_2_ros)/config/euroc/euroc.yaml"/>
     <!-- Path of the file containing camera calibration. -->
