@@ -5,42 +5,40 @@
 #--------------------------------------------------------------------------------------------
 
 # Camera calibration and distortion parameters (OpenCV)
-Camera.fx: 457.975
-Camera.fy: 457.975
-Camera.cx: 467.0
-Camera.cy: 235.5
+Camera.fx: 360
+Camera.fy: 360
+Camera.cx: 360
+Camera.cy: 240
 
 Camera.k1: 0.0
 Camera.k2: 0.0
 Camera.p1: 0.0
 Camera.p2: 0.0
 
-Camera.width: 934 #752
-Camera.height: 471 #480
+Camera.width: 640
+Camera.height: 480
 
 # Camera frames per second
-Camera.fps: 20.0
+Camera.fps: 2.0
 
-# stereo baseline times fx
-Camera.bf: 50.41289976523141 #47.90639384423901
+# IR projector baseline times fx (aprox.)
+Camera.bf: 40.0
 
 # Color order of the images (0: BGR, 1: RGB. It is ignored if images are grayscale)
 Camera.RGB: 1
 
 # Close/Far threshold. Baseline times.
-ThDepth: 35
+ThDepth: 40.0
 
-#--------------------------------------------------------------------------------------------
-# Stereo Rectification done by using camchain.yaml and stereo_undistort_node form package
-# image_undistort (ethz-asl Github)
-#--------------------------------------------------------------------------------------------
+# Deptmap values factor
+DepthMapFactor: 1.0
 
 #--------------------------------------------------------------------------------------------
 # ORB Parameters
 #--------------------------------------------------------------------------------------------
 
 # ORB Extractor: Number of features per image
-ORBextractor.nFeatures: 1200
+ORBextractor.nFeatures: 800
 
 # ORB Extractor: Scale factor between levels in the scale pyramid
 ORBextractor.scaleFactor: 1.2
