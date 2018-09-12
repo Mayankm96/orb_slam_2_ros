@@ -19,6 +19,8 @@ namespace orb_slam_2_interface {
 
 // Default values for parameters
 static const bool kDefaultVerbose = true;
+static const bool kDefaultVisualization = true;
+static const std::string kDefaultInterfaceType = "mono";
 static const std::string kDefaultFrameId = "world";
 static const std::string kDefaultChildFrameId = "cam0";
 

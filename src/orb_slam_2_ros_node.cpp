@@ -11,8 +11,11 @@
 
 // A factory method for creating an interface
 std::unique_ptr<orb_slam_2_interface::OrbSlam2Interface> create_interface(
-    std::string interface_type, const ros::NodeHandle& nh,
-    const ros::NodeHandle& nh_private, const bool visualization) {
+  std::string interface_type,
+  const ros::NodeHandle& nh,
+  const ros::NodeHandle& nh_private,
+  const bool visualization
+) {
   // Creating the aligner object subclass dependent on the argument
   std::unique_ptr<orb_slam_2_interface::OrbSlam2Interface> interface;
   if (interface_type == "mono") {
@@ -44,11 +47,15 @@ int main(int argc, char** argv) {
   ros::NodeHandle nh;
   ros::NodeHandle nh_private("~");
   // Get the parameter describing the interface type
-  static const std::string kDefaultInterfaceType = "mono";
-  std::string interface_type = kDefaultInterfaceType;
+  std::string interface_type = orb_slam_2_interface::kDefaultInterfaceType;
   nh_private.getParam("interface_type", interface_type);
-  bool visualization = false;
+
+  bool visualization = orb_slam_2_interface::kDefaultVisualization;
   nh_private.getParam("visualization", visualization);
+
+  bool verbose = orb_slam_2_interface::kDefaultVerbose;
+  nh_private.getParam("verbose", verbose);
+
   // Creating the interface object to do the work
   std::unique_ptr<orb_slam_2_interface::OrbSlam2Interface> interface =
       create_interface(interface_type, nh, nh_private, visualization);
