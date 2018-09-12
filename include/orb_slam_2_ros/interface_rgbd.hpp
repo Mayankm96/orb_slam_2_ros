@@ -22,7 +22,8 @@ class OrbSlam2InterfaceRGBD : public OrbSlam2Interface {
  public:
   // Constructor
   OrbSlam2InterfaceRGBD(const ros::NodeHandle& nh,
-                          const ros::NodeHandle& nh_private);
+                        const ros::NodeHandle& nh_private,
+                        const bool visualization);
 
  protected:
   // Subscribes to the appropriate ROS topics

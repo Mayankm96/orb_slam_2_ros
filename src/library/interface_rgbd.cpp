@@ -5,7 +5,8 @@
 namespace orb_slam_2_interface {
 
 OrbSlam2InterfaceRGBD::OrbSlam2InterfaceRGBD(const ros::NodeHandle& nh,
-                                             const ros::NodeHandle& nh_private)
+                        const ros::NodeHandle& nh_private,
+                        const bool visualization)
     : OrbSlam2Interface(nh, nh_private) {
   // Getting data and params
   subscribeToTopics();
@@ -13,7 +14,7 @@ OrbSlam2InterfaceRGBD::OrbSlam2InterfaceRGBD(const ros::NodeHandle& nh,
   //getParametersFromRos();
   slam_system_ = std::shared_ptr<ORB_SLAM2::System>(
       new ORB_SLAM2::System(vocabulary_file_path_, settings_file_path_,
-                            ORB_SLAM2::System::RGBD, false));
+                            ORB_SLAM2::System::RGBD, visualization));
 }
 
 void OrbSlam2InterfaceRGBD::subscribeToTopics() {
