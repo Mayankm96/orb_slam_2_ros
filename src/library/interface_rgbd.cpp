@@ -15,6 +15,10 @@ OrbSlam2InterfaceRGBD::OrbSlam2InterfaceRGBD(const ros::NodeHandle& nh,
   slam_system_ = std::shared_ptr<ORB_SLAM2::System>(
       new ORB_SLAM2::System(vocabulary_file_path_, settings_file_path_,
                             ORB_SLAM2::System::RGBD, visualization));
+
+  // Starting thread to publish loop closure trajectories
+  mpt_loop_closure_publisher =
+      new thread(&OrbSlam2InterfaceRGBD::runPublishUpdatedTrajectory, this);
 }
 
 void OrbSlam2InterfaceRGBD::subscribeToTopics() {
